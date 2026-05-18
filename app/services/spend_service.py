@@ -1,4 +1,6 @@
+"""Spend service."""
 def get_total(cost,items,tax):
+    """Calculate total cost."""
     subtotal=0
     for item in items:
         subtotal+=cost.get(item,0)

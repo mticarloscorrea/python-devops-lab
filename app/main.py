@@ -1,3 +1,4 @@
+"""Main Flask application."""
 from flask import Flask
 from flask_restx import Api, Resource, fields
 
@@ -43,9 +44,11 @@ word_model = api.model("WordRequest", {
 
 @dictionary_ns.route("/")
 class DictionaryEntryResource(Resource):
+    """Dictionary entry resource."""
 
     @dictionary_ns.expect(dictionary_model)
     def post(self):
+        """Create dictionary entry."""
         data = api.payload
         dictionary.newentry(data["word"], data["definition"])
         return {"message": "Entry added successfully"}, 201
