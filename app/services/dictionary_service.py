@@ -9,10 +9,8 @@ class Dictionary:
         """Add new dictionary entry."""
         self.entries[word] = definition
 
-    def look(self,word):
+    def look(self, word):
         """Search dictionary entry."""
         if word in self.entries:
             return self.entries[word]
-        else:
-            return "Can't find entry for {}".format(word)   
-
+        return f"Can't find entry for {word}"

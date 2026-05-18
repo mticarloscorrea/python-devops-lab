@@ -77,6 +77,7 @@ class WordResource(Resource):
 
     @word_ns.expect(word_model)
     def post(self):
+        """Build word from request."""
         data = api.payload
         result = build_word(data["words"])
         return {"result": result}, 200
