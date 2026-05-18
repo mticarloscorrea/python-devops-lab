@@ -52,7 +52,7 @@ class DictionaryEntryResource(Resource):
         data = api.payload
         dictionary.newentry(data["word"], data["definition"])
         return {"message": "Entry added successfully"}, 201
-    
+
 @dictionary_ns.route("/<string:word>")
 class DictionaryLookupResource(Resource):
     """Dictionary lookup resource."""
@@ -61,7 +61,7 @@ class DictionaryLookupResource(Resource):
         """Get dictionary entry by word."""
         result = dictionary.look(word)
         return {"result": result}, 200
-    
+
 @spend_ns.route("/")
 class SpendResource(Resource):
     """Spend resource."""
@@ -73,7 +73,7 @@ class SpendResource(Resource):
         data = api.payload
         total = get_total(data["costs"], data["items"], data["tax"])
         return {"total": total}, 200
-    
+
 @word_ns.route("/")
 class WordResource(Resource):
     """Word resource."""
@@ -83,6 +83,7 @@ class WordResource(Resource):
         data = api.payload
         result = build_word(data["words"])
         return {"result": result}, 200
-    
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)  # nosec B104
+    
