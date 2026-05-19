@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 api = Api(
     app,
-    title="Python DevOps Lab API",
+    title="Python DevOps Lab API carlos correa",
     version="1.0",
     description="API para las tareas del PDF usando Flask y Swagger",
     doc="/swagger"
